@@ -3448,6 +3448,13 @@
         var fetch_key = fetch("https://olm.vn/?g=math.q_quiz_enc&id_skill=" + localStorage.getItem("id_skill"));
         fetch_key.then(response => response.json().then(data => insert_key_here = data));
         
+        if (insert_key_here == []) {
+            document.write("<h1>ID không tồn tại. Đang quay trở về trang cũ...</h1>");
+            setTimeout(function() { 
+            window.location.href = "https://getkeyolm.github.io"; 
+            }, 3000);
+        }
+        
         N = {
                 _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
                 decode: function(t) {
